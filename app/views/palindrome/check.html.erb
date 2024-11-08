@@ -1,0 +1,11 @@
+<h1>Palindrome Check</h1>
+<form action="/palindrome/check" method="get">
+    <label for="input">Enter a word or phrase:</label>
+    <input type="text" id="input" name="input">
+    <button type="submit">Check</button>
+</form>
+
+<% if @input %>
+  <p><strong>Input:</strong> <%= @input %></p>
+  <p><strong>Is Palindrome:</strong> <%= @result %></p>
+<% end %>
