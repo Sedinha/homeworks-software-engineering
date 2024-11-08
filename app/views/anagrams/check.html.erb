@@ -1,0 +1,21 @@
+<h1>Find Anagrams</h1>
+
+<%= form_with url: anagrams_check_path, method: :get, local: true do |f| %>
+  <div class="form-group">
+    <label for="words">Enter words (comma-separated):</label>
+    <%= text_field_tag 'words', params[:words], class: 'form-control', 
+        placeholder: 'Example: cars, racs, for, four, scar' %>
+  </div>
+  <%= submit_tag 'Find Anagrams', class: 'btn btn-primary' %>
+<% end %>
+
+<% if @result&.any? %>
+  <h2>Anagram Groups Found:</h2>
+  <ul>
+    <% @result.each do |group| %>
+      <li><%= group.join(', ') %></li>
+    <% end %>
+  </ul>
+<% elsif @words&.any? %>
+  <p>No anagrams found in the given words.</p>
+<% end %>

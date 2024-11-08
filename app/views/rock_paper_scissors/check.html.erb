@@ -1,0 +1,24 @@
+<h1>Rock-Paper-Scissors Game</h1>
+<%= form_with url: '/rock_paper_scissors/check', method: :get do %>
+  <div>
+    <label for="player1_name">Player 1 Name:</label>
+    <%= text_field_tag "input[0][name]", nil, id: "player1_name" %>
+  </div>
+  <div>
+    <label for="player1_strategy">Player 1 Strategy (R/P/S):</label>
+    <%= text_field_tag "input[0][strategy]", nil, id: "player1_strategy" %>
+  </div>
+  <div>
+    <label for="player2_name">Player 2 Name:</label>
+    <%= text_field_tag "input[1][name]", nil, id: "player2_name" %>
+  </div>
+  <div>
+    <label for="player2_strategy">Player 2 Strategy (R/P/S):</label>
+    <%= text_field_tag "input[1][strategy]", nil, id: "player2_strategy" %>
+  </div>
+  <%= submit_tag "Check Winner" %>
+<% end %>
+
+<% if @result %>
+  <h2>Winner: <%= @result[0] %> (Strategy: <%= @result[1] %>)</h2>
+<% end %>
