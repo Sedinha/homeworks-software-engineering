@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   get 'palindrome/check', to: 'palindrome#check'
   
   get 'rock_paper_scissors/check', to: 'rock_paper_scissors#check'
-
+  
   get 'anagrams/check', to: 'anagrams#check'
   
+  resources :desserts, only: [:index] do
+    collection do
+      post 'check'
+    end
+  end
+
+
 end

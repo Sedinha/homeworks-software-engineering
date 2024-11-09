@@ -1,0 +1,15 @@
+<h1>Dessert Analysis</h1>
+
+<div class="result-section">
+  <h2><%= @dessert.name %></h2>
+  <p>Calories: <%= @dessert.calories %></p>
+  
+  <% if @dessert.is_a?(JellyBean) %>
+    <p>Flavor: <%= @dessert.flavor %></p>
+  <% end %>
+  
+  <p>Is it healthy? <%= @dessert.healthy? ? "Yes" : "No" %></p>
+  <p>Is it delicious? <%= @dessert.delicious? ? "Yes" : "No" %></p>
+</div>
+
+<%= link_to "Check Another Dessert", desserts_path, class: 'btn btn-primary' %>

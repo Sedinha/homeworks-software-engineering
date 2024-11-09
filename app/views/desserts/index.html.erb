@@ -1,0 +1,61 @@
+<h1>Dessert Checker</h1>
+
+<div class="form-section">
+  <%= form_tag(check_desserts_path, method: :post) do %>
+    <div class="form-group">
+      <%= label_tag :name, "Dessert Name:" %>
+      <%= text_field_tag :name, nil, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :calories, "Calories:" %>
+      <%= number_field_tag :calories, nil, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :flavor, "Flavor (for Jelly Beans only):" %>
+      <%= text_field_tag :flavor, nil, class: 'form-control' %>
+    </div>
+
+    <%= submit_tag "Check Dessert", class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<h2>Example Desserts:</h2>
+<ul>
+  <li>
+    Regular Dessert: <%= @dessert.name %> (<%= @dessert.calories %> calories)
+    <br>
+    Healthy? <%= @dessert.healthy? %>
+    <br>
+    Delicious? <%= @dessert.delicious? %>
+  </li>
+
+  <li>
+    Healthy Dessert: <%= @healthy_dessert.name %> (<%= @healthy_dessert.calories %> calories)
+    <br>
+    Healthy? <%= @healthy_dessert.healthy? %>
+    <br>
+    Delicious? <%= @healthy_dessert.delicious? %>
+  </li>
+
+  <li>
+    Cherry Jelly Bean: <%= @jelly_bean.name %> (<%= @jelly_bean.calories %> calories)
+    <br>
+    Flavor: <%= @jelly_bean.flavor %>
+    <br>
+    Healthy? <%= @jelly_bean.healthy? %>
+    <br>
+    Delicious? <%= @jelly_bean.delicious? %>
+  </li>
+
+  <li>
+    Black Licorice Jelly Bean: <%= @black_licorice.name %> (<%= @black_licorice.calories %> calories)
+    <br>
+    Flavor: <%= @black_licorice.flavor %>
+    <br>
+    Healthy? <%= @black_licorice.healthy? %>
+    <br>
+    Delicious? <%= @black_licorice.delicious? %>
+  </li>
+</ul>
